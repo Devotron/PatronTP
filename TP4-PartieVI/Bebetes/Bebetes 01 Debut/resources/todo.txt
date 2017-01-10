@@ -1,0 +1,5 @@
+Faire le comportement de fuite :
+- modifier calculDeplacementAFaire pour que la methode agir puisse etre utilisee
+- transformer les bebetes en MaBebete
+- on ne s'occupe pas de l'affichage
+- pas beaucoup de code a ecrire... ils existent deja 
