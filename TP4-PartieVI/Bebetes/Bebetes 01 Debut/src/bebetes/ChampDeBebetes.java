@@ -23,22 +23,23 @@ public class ChampDeBebetes extends VisualisateurAnime {
 	public ChampDeBebetes(int largeur, int hauteur, int nb) {
 		super(largeur,hauteur);
 		setPreferredSize(new Dimension(largeur, hauteur));
-		List <? extends Bebete> lb = fabriqueBebetes(nb);
+//		List<? extends Bebete> lb = fabriqueBebetes(nb);
+		List <? extends BebeteFuite> lb = (List<? extends BebeteFuite>) fabriqueBebetes(nb);
 		// Initialisation du mariage de convenance avec le simulateur
 		simu = new Simulateur(50,lb);
 		setDessinables(lb);
 	}
 
-	/* Redéfinitions pour synchroniser la gestion des 2 threads */
+	/* Redï¿½finitions pour synchroniser la gestion des 2 threads */
 
 	public void demarre() {
-		// on démarre d'abord la simulation
+		// on dï¿½marre d'abord la simulation
 		simu.demarre();
 		super.demarre();
 	}
 
 	public void arrete() {
-		// on arrête d'abord la visualisation
+		// on arrï¿½te d'abord la visualisation
 		super.arrete();
 		simu.arrete();
 	}
@@ -46,7 +47,7 @@ public class ChampDeBebetes extends VisualisateurAnime {
 	public ArrayList<? extends Bebete> fabriqueBebetes(int nb) {
 		ArrayList<BebeteEmergente> nouvBebetes = new ArrayList<BebeteEmergente>();
 		Random generateur = new Random();
-		// unicité des couleurs des bébêtes, juste là pour faire joli...
+		// unicitï¿½ des couleurs des bï¿½bï¿½tes, juste lï¿½ pour faire joli...
 		double racineCubiqueDuNombreDeBebetes = Math.pow((double) nb, 1.0 / 3.0);
 		double etapeDeCouleur = (1.0 / racineCubiqueDuNombreDeBebetes);
 		float r = 0.0f;
@@ -83,11 +84,11 @@ public class ChampDeBebetes extends VisualisateurAnime {
 		return getPositionnables().size();
 	}
 
-	public int getDelaiSimulation() { // Délégation
+	public int getDelaiSimulation() { // Dï¿½lï¿½gation
 		return simu.getDelaiSimulation();
 	}
 
-	public void setDelaiSimulation(int delaiSimu) { // Délégation
+	public void setDelaiSimulation(int delaiSimu) { // Dï¿½lï¿½gation
 		simu.setDelaiSimulation(delaiSimu);
 	}
 
