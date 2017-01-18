@@ -12,8 +12,6 @@ public abstract class BebeteFuite extends Bebete {
     private Fuite fuite = new Fuite();
     private Etat nouvelEtat = new Etat();
     
-//    public static final double distanceMin = 10f; // En pixels
-    
     @Override
     public void calculeDeplacementAFaire() {
         Etat etatCourant = new Etat();
@@ -25,7 +23,9 @@ public abstract class BebeteFuite extends Bebete {
        // TODO: add elts
         ArrayList<MaBebete> mesBebetes = new ArrayList<>();
        
-       Object params = null;
+        final double distanceMin = 10f; // En pixels
+       Object[] params = null;
+       params[0] = distanceMin;
         // params :  distanceMin, vitesseMax, Class de filtrage
         nouvelEtat = fuite.agit(mesBebetes, etatCourant, params);
     }

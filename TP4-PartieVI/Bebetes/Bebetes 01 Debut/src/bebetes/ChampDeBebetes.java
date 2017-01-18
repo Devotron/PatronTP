@@ -23,8 +23,13 @@ public class ChampDeBebetes extends VisualisateurAnime {
 	public ChampDeBebetes(int largeur, int hauteur, int nb) {
 		super(largeur,hauteur);
 		setPreferredSize(new Dimension(largeur, hauteur));
-//		List<? extends Bebete> lb = fabriqueBebetes(nb);
-		List <? extends BebeteFuite> lb = (List<? extends BebeteFuite>) fabriqueBebetes(nb);
+		List<? extends Bebete> lb = fabriqueBebetes(nb);
+		List <? extends Bebete> lbFuite = (List<? extends BebeteFuite>) fabriqueBebetes(nb);
+		
+		if (lb.get(0).getChosesVues().size() > 10) {
+//                    lb.set(0, lbFuite.get(0));
+		}
+		
 		// Initialisation du mariage de convenance avec le simulateur
 		simu = new Simulateur(50,lb);
 		setDessinables(lb);
